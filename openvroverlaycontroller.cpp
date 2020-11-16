@@ -207,6 +207,16 @@ void COpenVROverlayController::OnTimeoutPumpEvents()
 	{
 		switch( vrEvent.eventType )
 		{
+        case vr::VREvent_TrackedDeviceUserInteractionStarted:
+            {
+                qDebug() << "VREvent_TrackedDeviceUserInteractionStarted";
+            }
+            break;
+        case vr::VREvent_TrackedDeviceUserInteractionEnded:
+            {
+                qDebug() << "VREvent_TrackedDeviceUserInteractionEnded";
+            }
+            break;
         case vr::VREvent_MouseMove:
 			{
 				QPointF ptNewMouse( vrEvent.data.mouse.x, vrEvent.data.mouse.y );
