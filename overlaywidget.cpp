@@ -10,12 +10,19 @@ OverlayWidget::OverlayWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    /////////////////////////////////////////////////////
+
     const auto outputList = GetAudioDeviceList(AudioDeviceDirection::OUTPUT);
     //const auto inputList = GetAudioDeviceList(AudioDeviceDirection::INPUT);
 
     qDebug() << "-----";
     qDebug() << "Found Output devices:";
     for (const auto& kv : outputList) {
+        // List only connected or present devices
+        if(kv.second.state != AudioDeviceState::CONNECTED && kv.second.state != AudioDeviceState::DEVICE_PRESENT_NO_CONNECTION){
+            continue;
+        }
+
         qDebug() << kv.first.data();
         qDebug() << kv.second.id.data();
         qDebug() << kv.second.interfaceName.data();
