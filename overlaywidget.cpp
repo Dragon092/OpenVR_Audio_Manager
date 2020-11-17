@@ -28,6 +28,24 @@ OverlayWidget::OverlayWidget(QWidget *parent) :
         qDebug() << kv.second.interfaceName.data();
         qDebug() << kv.second.endpointName.data();
         qDebug() << kv.second.displayName.data();
+
+
+        std::string stateString;
+
+        if(kv.second.state == AudioDeviceState::CONNECTED){
+            stateString = "CONNECTED";
+        } else if(kv.second.state == AudioDeviceState::DEVICE_NOT_PRESENT){
+            stateString = "DEVICE_NOT_PRESENT";
+        } else if(kv.second.state == AudioDeviceState::DEVICE_DISABLED){
+            stateString = "DEVICE_DISABLED";
+        } else if(kv.second.state == AudioDeviceState::DEVICE_PRESENT_NO_CONNECTION){
+            stateString = "DEVICE_PRESENT_NO_CONNECTION";
+        } else {
+            qCritical() << "Error AudioDeviceState";
+        }
+
+        qDebug() << stateString.data();
+
         qDebug() << "---";
     }
     qDebug() << "-----";
