@@ -21,6 +21,7 @@ OverlayWidget::OverlayWidget(QWidget *parent) :
         qDebug() << kv.second.interfaceName.data();
         qDebug() << kv.second.endpointName.data();
         qDebug() << kv.second.displayName.data();
+        qDebug() << kv.second.direction;
         qDebug() << "---";
     }
     qDebug() << "-----";
