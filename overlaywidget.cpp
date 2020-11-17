@@ -49,6 +49,14 @@ OverlayWidget::OverlayWidget(QWidget *parent) :
         qDebug() << "---";
     }
     qDebug() << "-----";
+
+
+    std::string default_default = GetDefaultAudioDeviceID(AudioDeviceDirection::OUTPUT, AudioDeviceRole::DEFAULT);
+    std::string default_communication = GetDefaultAudioDeviceID(AudioDeviceDirection::OUTPUT, AudioDeviceRole::COMMUNICATION);
+
+    qDebug() << "default default: " << default_default.data();
+    qDebug() << "default communication" << default_communication.data();
+    qDebug() << "-----";
 }
 
 OverlayWidget::~OverlayWidget()
