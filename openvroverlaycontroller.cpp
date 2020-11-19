@@ -15,6 +15,9 @@
 #include <QCursor>
 #include <iostream>
 
+#include <audiostatecontroller.h>
+#include <AudioFunctions.h>
+
 using namespace vr;
 
 //-----------------------------------------------------------------------------
@@ -210,11 +213,15 @@ void COpenVROverlayController::OnTimeoutPumpEvents()
         case vr::VREvent_TrackedDeviceUserInteractionStarted:
             {
                 qDebug() << "VREvent_TrackedDeviceUserInteractionStarted";
+                AudioStateController::SharedInstance()->setDevice(AudioDeviceDirection::OUTPUT, AudioStateController::SharedInstance()->m_prefs.output_wearinghmd.toStdString());
+                AudioStateController::SharedInstance()->setDevice(AudioDeviceDirection::INPUT, AudioStateController::SharedInstance()->m_prefs.input_wearinghmd.toStdString());
             }
             break;
         case vr::VREvent_TrackedDeviceUserInteractionEnded:
             {
                 qDebug() << "VREvent_TrackedDeviceUserInteractionEnded";
+                AudioStateController::SharedInstance()->setDevice(AudioDeviceDirection::OUTPUT, AudioStateController::SharedInstance()->m_prefs.output_notwearinghmd.toStdString());
+                AudioStateController::SharedInstance()->setDevice(AudioDeviceDirection::INPUT, AudioStateController::SharedInstance()->m_prefs.input_notwearinghmd.toStdString());
             }
             break;
         case vr::VREvent_MouseMove:
