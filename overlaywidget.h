@@ -2,6 +2,7 @@
 #define OVERLAYWIDGET_H
 
 #include <QtWidgets/QWidget>
+#include "AudioFunctions.h"
 
 namespace Ui {
 class OverlayWidget;
@@ -20,8 +21,6 @@ private slots:
 
     void on_pushButton_released();
 
-    void on_pushButton_3_clicked();
-
     void on_pushButton_4_clicked();
 
     void on_comboBox_output_wearinghmd_currentIndexChanged(int index);
@@ -34,6 +33,9 @@ private slots:
 
 private:
     Ui::OverlayWidget *ui;
+
+    QList<AudioDeviceInfo> outputDevices;
+    QList<AudioDeviceInfo> inputDevices;
 };
 
 #endif // OVERLAYWIDGET_H
