@@ -4,6 +4,10 @@
 #include "AudioFunctions.h"
 #include <QDebug>
 
+#include "json.hpp"
+
+using nlohmann::json;
+
 OverlayWidget::OverlayWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::OverlayWidget)
@@ -13,7 +17,9 @@ OverlayWidget::OverlayWidget(QWidget *parent) :
     /////////////////////////////////////////////////////
 
     const auto outputList = GetAudioDeviceList(AudioDeviceDirection::OUTPUT);
-    //const auto inputList = GetAudioDeviceList(AudioDeviceDirection::INPUT);
+    const auto inputList = GetAudioDeviceList(AudioDeviceDirection::INPUT);
+
+
 
     qDebug() << "-----";
     qDebug() << "Found Output devices:";
@@ -51,11 +57,56 @@ OverlayWidget::OverlayWidget(QWidget *parent) :
     qDebug() << "-----";
 
 
-    std::string default_default = GetDefaultAudioDeviceID(AudioDeviceDirection::OUTPUT, AudioDeviceRole::DEFAULT);
-    std::string default_communication = GetDefaultAudioDeviceID(AudioDeviceDirection::OUTPUT, AudioDeviceRole::COMMUNICATION);
+    qDebug() << "-----";
+    qDebug() << "Found Input devices:";
+    for (const auto& kv : inputList) {
+        // List only connected or present devices
+        if(kv.second.state != AudioDeviceState::CONNECTED && kv.second.state != AudioDeviceState::DEVICE_PRESENT_NO_CONNECTION){
+            continue;
+        }
 
-    qDebug() << "default default: " << default_default.data();
-    qDebug() << "default communication" << default_communication.data();
+        inputDevices.append(kv.second);
+
+        qDebug() << kv.first.data();
+        qDebug() << kv.second.id.data();
+        qDebug() << kv.second.interfaceName.data();
+        qDebug() << kv.second.endpointName.data();
+        qDebug() << kv.second.displayName.data();
+
+
+        std::string stateString;
+
+        if(kv.second.state == AudioDeviceState::CONNECTED){
+            stateString = "CONNECTED";
+        } else if(kv.second.state == AudioDeviceState::DEVICE_NOT_PRESENT){
+            stateString = "DEVICE_NOT_PRESENT";
+        } else if(kv.second.state == AudioDeviceState::DEVICE_DISABLED){
+            stateString = "DEVICE_DISABLED";
+        } else if(kv.second.state == AudioDeviceState::DEVICE_PRESENT_NO_CONNECTION){
+            stateString = "DEVICE_PRESENT_NO_CONNECTION";
+        } else {
+            qCritical() << "Error AudioDeviceState";
+        }
+
+        qDebug() << stateString.data();
+
+        qDebug() << "---";
+    }
+    qDebug() << "-----";
+
+
+    std::string default_output_default = GetDefaultAudioDeviceID(AudioDeviceDirection::OUTPUT, AudioDeviceRole::DEFAULT);
+    std::string default_output_communication = GetDefaultAudioDeviceID(AudioDeviceDirection::OUTPUT, AudioDeviceRole::COMMUNICATION);
+
+    qDebug() << "default output default:           " << default_output_default.data();
+    qDebug() << "default output communication:     " << default_output_communication.data();
+    qDebug() << "-----";
+
+    std::string default_input_default = GetDefaultAudioDeviceID(AudioDeviceDirection::INPUT, AudioDeviceRole::DEFAULT);
+    std::string default_input_communication = GetDefaultAudioDeviceID(AudioDeviceDirection::INPUT, AudioDeviceRole::COMMUNICATION);
+
+    qDebug() << "default input default:           " << default_input_default.data();
+    qDebug() << "default input communication:     " << default_input_communication.data();
     qDebug() << "-----";
 }
 
