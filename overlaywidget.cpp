@@ -120,9 +120,9 @@ void OverlayWidget::on_pushButton_clicked()
     QApplication::quit();
 }
 
-void OverlayWidget::on_pushButton_3_clicked()
+void OverlayWidget::on_pushButton_save_clicked()
 {
-
+    AudioStateController::SharedInstance()->saveSettings();
 }
 
 void OverlayWidget::on_pushButton_4_clicked()
