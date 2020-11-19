@@ -2,6 +2,7 @@
 #include "ui_overlaywidget.h"
 
 #include "AudioFunctions.h"
+#include "audiostatecontroller.h"
 #include <QDebug>
 
 #include "json.hpp"
@@ -28,6 +29,8 @@ OverlayWidget::OverlayWidget(QWidget *parent) :
         if(kv.second.state != AudioDeviceState::CONNECTED && kv.second.state != AudioDeviceState::DEVICE_PRESENT_NO_CONNECTION){
             continue;
         }
+
+        outputDevices.append(kv.second);
 
         qDebug() << kv.first.data();
         qDebug() << kv.second.id.data();
@@ -108,6 +111,50 @@ OverlayWidget::OverlayWidget(QWidget *parent) :
     qDebug() << "default input default:           " << default_input_default.data();
     qDebug() << "default input communication:     " << default_input_communication.data();
     qDebug() << "-----";
+
+
+    //AudioStateController::SharedInstance()->m_prefs.default_output_default = QString::fromStdString(default_output_default);
+    //AudioStateController::SharedInstance()->m_prefs.default_output_communication = QString::fromStdString(default_output_communication);
+    //AudioStateController::SharedInstance()->saveSettings();
+
+    // 0 is None so we start at 1
+    int index_output = 1;
+    for (const auto& kv : outputDevices) {
+        ui->comboBox_output_wearinghmd->addItem(QString::fromStdString(kv.displayName));
+        ui->comboBox_output_notwearinghmd->addItem(QString::fromStdString(kv.displayName));
+
+        if(AudioStateController::SharedInstance()->m_prefs.output_wearinghmd == QString::fromStdString(kv.id)){
+            qDebug() << "Found saved output_wearinghmd " << QString::fromStdString(kv.id) << " at " << index_output;
+            ui->comboBox_output_wearinghmd->setCurrentIndex(index_output);
+        }
+
+        if(AudioStateController::SharedInstance()->m_prefs.output_notwearinghmd == QString::fromStdString(kv.id)){
+            qDebug() << "Found saved output_notwearinghmd " << QString::fromStdString(kv.id) << " at " << index_output;
+            ui->comboBox_output_notwearinghmd->setCurrentIndex(index_output);
+        }
+
+        index_output++;
+    }
+
+    // 0 is None so we start at 1
+    int index_input = 1;
+    for (const auto& kv : inputDevices) {
+        ui->comboBox_input_wearinghmd->addItem(QString::fromStdString(kv.displayName));
+        ui->comboBox_input_notwearinghmd->addItem(QString::fromStdString(kv.displayName));
+
+        if(AudioStateController::SharedInstance()->m_prefs.input_wearinghmd == QString::fromStdString(kv.id)){
+            qDebug() << "Found saved input_wearinghmd " << QString::fromStdString(kv.id) << " at " << index_input;
+            ui->comboBox_input_wearinghmd->setCurrentIndex(index_input);
+        }
+
+        if(AudioStateController::SharedInstance()->m_prefs.input_notwearinghmd == QString::fromStdString(kv.id)){
+            qDebug() << "Found saved input_notwearinghmd " << QString::fromStdString(kv.id) << " at " << index_input;
+            ui->comboBox_input_notwearinghmd->setCurrentIndex(index_input);
+        }
+
+        index_input++;
+    }
+
 }
 
 OverlayWidget::~OverlayWidget()
