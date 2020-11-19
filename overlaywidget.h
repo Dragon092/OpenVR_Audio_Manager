@@ -24,6 +24,14 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_comboBox_output_wearinghmd_currentIndexChanged(int index);
+    void on_comboBox_output_notwearinghmd_currentIndexChanged(int index);
+
+    void on_comboBox_input_wearinghmd_currentIndexChanged(int index);
+    void on_comboBox_input_notwearinghmd_currentIndexChanged(int index);
+
+    void on_pushButton_save_clicked();
+
 private:
     Ui::OverlayWidget *ui;
 };

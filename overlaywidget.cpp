@@ -91,3 +91,43 @@ void OverlayWidget::on_pushButton_released()
 {
 
 }
+
+void OverlayWidget::on_comboBox_output_wearinghmd_currentIndexChanged(int index)
+{
+    QString selectedDeviceID = QString::fromStdString(outputDevices.at(index - 1).id);
+    qDebug() << "Selected comboBox_output_wearinghmd entry with Index " << index << " and DeviceID " << selectedDeviceID;
+
+    AudioStateController::SharedInstance()->m_prefs.output_wearinghmd = selectedDeviceID;
+
+    AudioStateController::SharedInstance()->saveSettings();
+}
+
+void OverlayWidget::on_comboBox_output_notwearinghmd_currentIndexChanged(int index)
+{
+    QString selectedDeviceID = QString::fromStdString(outputDevices.at(index - 1).id);
+    qDebug() << "Selected comboBox_output_notwearinghmd entry with Index " << index << " and DeviceID " << selectedDeviceID;
+
+    AudioStateController::SharedInstance()->m_prefs.output_notwearinghmd = selectedDeviceID;
+
+    AudioStateController::SharedInstance()->saveSettings();
+}
+
+void OverlayWidget::on_comboBox_input_wearinghmd_currentIndexChanged(int index)
+{
+    QString selectedDeviceID = QString::fromStdString(inputDevices.at(index - 1).id);
+    qDebug() << "Selected comboBox_input_wearinghmd entry with Index " << index << " and DeviceID " << selectedDeviceID;
+
+    AudioStateController::SharedInstance()->m_prefs.input_wearinghmd = selectedDeviceID;
+
+    AudioStateController::SharedInstance()->saveSettings();
+}
+
+void OverlayWidget::on_comboBox_input_notwearinghmd_currentIndexChanged(int index)
+{
+    QString selectedDeviceID = QString::fromStdString(inputDevices.at(index - 1).id);
+    qDebug() << "Selected comboBox_input_notwearinghmd entry with Index " << index << " and DeviceID " << selectedDeviceID;
+
+    AudioStateController::SharedInstance()->m_prefs.input_notwearinghmd = selectedDeviceID;
+
+    AudioStateController::SharedInstance()->saveSettings();
+}
