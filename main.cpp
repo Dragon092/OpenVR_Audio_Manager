@@ -5,6 +5,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setOrganizationName("GameMods");
+    a.setOrganizationDomain("https://GameMods.org");
+    a.setApplicationName("OVRAudioManager");
+
     OverlayWidget *pOverlayWidget = new OverlayWidget;
 
     COpenVROverlayController::SharedInstance()->Init();
