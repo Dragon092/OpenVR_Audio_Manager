@@ -5,10 +5,6 @@
 #include "audiostatecontroller.h"
 #include <QDebug>
 
-#include "json.hpp"
-
-using nlohmann::json;
-
 OverlayWidget::OverlayWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::OverlayWidget)
