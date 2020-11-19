@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.2, 2020-11-16T08:22:37. -->
+<!-- Written by QtCreator 4.13.2, 2020-11-19T10:22:22. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -96,8 +96,8 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\mail\Downloads\openvr-1.14.15\openvr-1.14.15\samples\build-helloworldoverlay-Desktop_Qt_5_15_0_MSVC2019_64bit-Debug</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/mail/Downloads/openvr-1.14.15/openvr-1.14.15/samples/build-helloworldoverlay-Desktop_Qt_5_15_0_MSVC2019_64bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">F:\DEV\openvr-1.14.15\samples\build-helloworldoverlay-Desktop_Qt_5_15_0_MSVC2019_64bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">F:/DEV/openvr-1.14.15/samples/build-helloworldoverlay-Desktop_Qt_5_15_0_MSVC2019_64bit-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -325,8 +325,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/mail/Downloads/openvr-1.14.15/openvr-1.14.15/samples/helloworldoverlay/helloworldoverlay.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/mail/Downloads/openvr-1.14.15/openvr-1.14.15/samples/helloworldoverlay/helloworldoverlay.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">helloworldoverlay2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:F:/DEV/openvr-1.14.15/samples/helloworldoverlay/helloworldoverlay.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">F:/DEV/openvr-1.14.15/samples/helloworldoverlay/helloworldoverlay.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -337,7 +338,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/mail/Downloads/openvr-1.14.15/openvr-1.14.15/samples/bin/win64</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">F:/DEV/openvr-1.14.15/samples/bin/win64</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
