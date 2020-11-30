@@ -24,7 +24,6 @@ HEADERS  += overlaywidget.h \
     AudioFunctions.h \
     PolicyConfig.h \
     audiostatecontroller.h \
-    json.hpp \
     openvroverlaycontroller.h
 
 FORMS    += overlaywidget.ui
