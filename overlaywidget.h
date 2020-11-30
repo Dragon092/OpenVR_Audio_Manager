@@ -17,11 +17,9 @@ public:
     ~OverlayWidget();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_quit_clicked();
 
-    void on_pushButton_released();
-
-    void on_pushButton_4_clicked();
+    void on_pushButton_refresh_clicked();
 
     void on_comboBox_output_wearinghmd_currentIndexChanged(int index);
     void on_comboBox_output_notwearinghmd_currentIndexChanged(int index);
@@ -30,6 +28,8 @@ private slots:
     void on_comboBox_input_notwearinghmd_currentIndexChanged(int index);
 
     void on_pushButton_save_clicked();
+
+    void on_pushButton_clear_settings_clicked();
 
 private:
     Ui::OverlayWidget *ui;
