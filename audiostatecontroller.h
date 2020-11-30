@@ -22,6 +22,7 @@ public:
 
     void loadSettings();
     void saveSettings();
+    void clearSettings();
 
     void setDevice(AudioDeviceDirection direction, std::string deviceID);
 

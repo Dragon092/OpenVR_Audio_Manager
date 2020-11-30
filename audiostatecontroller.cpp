@@ -64,3 +64,11 @@ void AudioStateController::setDevice(AudioDeviceDirection direction, std::string
         SetDefaultAudioDeviceID(direction, AudioDeviceRole::COMMUNICATION, deviceID);
     }
 }
+
+void AudioStateController::clearSettings()
+{
+    qDebug() << "Clearing settings...";
+
+    QSettings settings;
+    settings.clear();
+}
