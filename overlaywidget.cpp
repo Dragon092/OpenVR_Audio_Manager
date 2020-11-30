@@ -158,7 +158,7 @@ OverlayWidget::~OverlayWidget()
     delete ui;
 }
 
-void OverlayWidget::on_pushButton_clicked()
+void OverlayWidget::on_pushButton_quit_clicked()
 {
     QApplication::quit();
 }
@@ -168,7 +168,7 @@ void OverlayWidget::on_pushButton_save_clicked()
     AudioStateController::SharedInstance()->saveSettings();
 }
 
-void OverlayWidget::on_pushButton_4_clicked()
+void OverlayWidget::on_pushButton_refresh_clicked()
 {
     const auto outputList = GetAudioDeviceList(AudioDeviceDirection::OUTPUT);
     //const auto inputList = GetAudioDeviceList(AudioDeviceDirection::INPUT);
@@ -179,11 +179,6 @@ void OverlayWidget::on_pushButton_4_clicked()
         qDebug() << kv.first.data();
     }
     qDebug() << "-----";
-}
-
-void OverlayWidget::on_pushButton_released()
-{
-
 }
 
 void OverlayWidget::on_comboBox_output_wearinghmd_currentIndexChanged(int index)
@@ -224,4 +219,9 @@ void OverlayWidget::on_comboBox_input_notwearinghmd_currentIndexChanged(int inde
     AudioStateController::SharedInstance()->m_prefs.input_notwearinghmd = selectedDeviceID;
 
     AudioStateController::SharedInstance()->saveSettings();
+}
+
+void OverlayWidget::on_pushButton_clear_settings_clicked()
+{
+    AudioStateController::SharedInstance()->clearSettings();
 }

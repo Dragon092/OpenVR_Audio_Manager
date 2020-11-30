@@ -13,81 +13,11 @@
   <property name="windowTitle">
    <string>Hello World Overlay</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QPushButton" name="pushButton_quit">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>181</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-        <stylestrategy>PreferAntialias</stylestrategy>
-       </font>
-      </property>
-      <property name="text">
-       <string>Hello World! This is an OpenVR System Overlay.</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="formLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>14</x>
-     <y>110</y>
-     <width>161</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="spinBoxLabel">
-      <property name="text">
-       <string>Spin Box:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QSpinBox" name="spinBoxSpinBox">
-      <property name="frame">
-       <bool>false</bool>
-      </property>
-      <property name="value">
-       <number>50</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="checkBoxesLabel">
-      <property name="text">
-       <string>Check Boxes:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QCheckBox" name="checkBoxesCheckBox"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>40</y>
+     <x>710</x>
+     <y>360</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -96,24 +26,11 @@
     <string>Quit Overlay</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pushButton_refresh">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>10</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Do Nothing</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_4">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>70</y>
+     <x>540</x>
+     <y>360</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -125,8 +42,8 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>160</y>
+     <x>10</x>
+     <y>10</y>
      <width>781</width>
      <height>131</height>
     </rect>
@@ -223,14 +140,27 @@
   <widget class="QPushButton" name="pushButton_save">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>100</y>
+     <x>620</x>
+     <y>360</y>
      <width>81</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Save</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_clear_settings">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>330</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear Settings</string>
    </property>
   </widget>
  </widget>
